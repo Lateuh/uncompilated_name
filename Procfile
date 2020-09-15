@@ -1,0 +1,1 @@
+web: gunicorn uncompilated_name.wsgi --timeout 11000

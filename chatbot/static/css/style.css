@@ -1,0 +1,81 @@
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.titre {
+  font-size: 35px;
+  text-align: center;
+  color : #4D7CBB;
+  background-color: #F5F5F5;
+  border: 2px solid #dedede;
+}
+
+.chat_fenetre {
+  height : 600px;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.user {
+  border: 2px solid #dedede;
+  background-color: #85C7F1;
+  border-radius: 5px;
+  width: 75%;
+  padding: 10px;
+  margin: 7px;
+  color :#011955;
+  align-self: flex-end;
+  text-align: right;
+  font-size: 18px;
+}
+
+.greg {
+  border-color: #ccc;
+  background-color: #F5F5F5;
+  color: #000000;
+  align-self: flex-start;
+  text-align: start;
+}
+
+.container-form
+{
+  border: 2px solid #dedede;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* inutile
+.user::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+*/
+
+.user img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.user img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #454545;
+}
+
+.time-left {
+  float: left;
+  color: #454545;
+}

@@ -1,16 +1,57 @@
-<!--<link href="css/style.css" rel="stylesheet">
--->
+{% load static %}
 
-<h6>Nous sommes le {{date}}</h6>
 
-<h1>Bienvenu dans la page du chatbot</h1>
-<br/>
-<form method="GET" action="">
-	<div>
-		<label for="phrase">Posez une question : </label>
-		<input style ="height: 30px; width: 700px; font-size: 1em; " type="text" name="phrase" id="phrase" required/>
-	</div>
-		<input type="submit" value="Parler">
-</form>
 
-<p>{{ reponse }}</p>
+
+<head>
+	<title>Accueil</title>
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+	<header style="overflow: hidden;">
+		<p class = titre>Robot de gestion de connaissances</p>
+		<p style="float: left;">{{date}}</p>
+		<a style="float: right; font-size: 20px;" href='help'><p>Comment ça marche ?</p></a>
+	</header>
+	
+	<form method="GET" action="">
+		<div class = "chat_fenetre" >
+				
+				{% for phr in dialog %}
+					{% if forloop.counter0|divisibleby:2 %}					
+		    			<div class="user greg">
+	  						<img src="{% static 'images/blender.jpg' %}" alt="Greg" class="left" style="width:100%;">
+	  						<p>{{ phr }}</p>
+	  						<span class="time-right">{% now "H:i" %}</span>
+						</div>
+					{% else %}
+						<div class="user">
+	  						<img src="{% static 'images/borat.jpg' %}" alt="User" class="right" style="width:100%;">
+	  						<p>{{ phr }}</p>
+	  						<span class="time-left">{% now "H:i" %}</span>
+						</div>
+					{% endif %}
+
+				
+				{% endfor %}
+				
+		</div>
+
+		<div class="container-form">
+ 			<input style ="width: 79%" type="text" name="phrase" id="phrase" required autofocus/>
+			<input style="width: 19%" type="submit" value="Envoyer">
+		</div>
+	</form>
+
+	<footer style = " overflow: hidden;
+  					background-color: #f1f1f1;
+  					padding: 10px">
+		<div style="float: left;">
+			<img src="{% static 'images/logo.png' %}" width="120" height=" 100">
+		</div>
+
+		<p style = "float: right;">&copy;UncompilatedName</p>
+	</footer>
+</body>

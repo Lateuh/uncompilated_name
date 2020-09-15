@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>help</title>
+	<link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+	<H1>Qui je suis ?</H1>
+	<p>Je suis Greg, un robot créé par un groupe d'étudiants en master informatique à Montpellier en Mai 2020. Je ne suis qu'en phase de début de développement, mais nous pouvons essayer de communiquer. Mon but est de donner des réponses à des questions de connaissances en français. Je suis capable d'apprendre de nouvelles choses ou bien de modifier ce que je sais déjà. Je suis également intimement relié au projet <a href='http://www.jeuxdemots.org/jdm-accueil.php'>JeuxDeMots</a> du laboratoire de recherche informatique de Montpellier.</p>
+
+	<H1>Comment me parler ?</H1>
+
+	<H3>Questions "est-ce que ... ?"</H3>
+		<p>Je peux répondre à des questions du type "est-ce qu'un chat est un animal ?" ou bien "est-ce qu'un avion est composé d'ailes ?". Si je ne te comprends pas, tu peux essayer de reformuler ta question.</p>
+
+	<H3>Questions "pourquoi ... ?"</H3>
+		<p>Je peux également répondre à des questions du type "pourquoi un tigre peut avoir comme propriété d'être dangereux ?" ou encore "pourquoi un soldat possède un fusil ?". Si je ne te comprends pas, tu peux essayer de reformuler ta question.</p>
+
+	<H3>Mode inverse</H3>
+		<p>Si tu préfères, on peut inverser les rôles, je peux te poser une question et tu tâcheras d'y répondre si tu le veux bien. Pour que je te pose une question tu peux simplement me le demander, "pose moi une question" par exemple. Si tu préfères parler de quelque chose en particulier, demande moi : "parle moi de ..." ou bien "parlons du ...". Ensuite il te suffit de me répondre simplement, inutile de partir dans des réflexions ou rédactions trop longues et complexes, j'aurais du mal à te suivre...</p>
+
+	
+
+	<a href='javascript:history.back()'><p>Retour</p></a>
+
+
+	<H3>Mes créateurs</H3>
+
+	<footer style = " overflow: hidden;
+  					background-color: #f1f1f1;
+  					display: flex;
+  					justify-content: space-around;
+  					padding: 10px">
+		
+  		<div >
+			<img src="{% static 'images/alexy.png' %}" alt="Alexy" width="150" height=" 150" style="border-radius: 50%">
+			<p style="text-align: center;">Alexy LEFEVRE</p>
+		</div>
+	
+		<div>
+			<img src="{% static 'images/massi.jpg' %}" alt="Massi" width="150" height=" 150" style="border-radius: 50%">
+			<p style="text-align: center;">Massinissa BELAID</p>
+		</div>
+
+		<div>
+			<img src="{% static 'images/ryadh.jpg' %}" alt="Ryadh" width="150" height=" 150" style="border-radius: 50%">
+			<p style="text-align: center;">Ryadh BELGHANEM</p>
+		</div>	
+
+	</footer>
+	
+		
+
+</body>
+</html>

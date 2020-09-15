@@ -4,6 +4,7 @@ from . import views
 
 urlpatterns = [
     path('',views.home),
-    path('date/<int:jour>/<int:mois>/<int:annee>',views.view_date),
-    path('date/<int:jour>/<int:mois>',views.view_date),
+    path('extraction',views.extraction),
+    path('help',views.help),
+    path('extractionSite',views.extractionSite)
 ]

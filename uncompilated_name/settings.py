@@ -23,9 +23,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y4f7a3!kr07u!jem=#1dm@pj@lgm#16#!=)3_m6@@+5k_+mz$c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else :
+    DEBUG = True
+
+
+
+ALLOWED_HOSTS = ['uncompilatedname.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -37,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chatbot'
+    'chatbot',
+
 ]
 
 MIDDLEWARE = [
@@ -48,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'uncompilated_name.urls'
@@ -75,17 +84,34 @@ WSGI_APPLICATION = 'uncompilated_name.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
-        'NAME': 'uncompilatedname',             # Nom de la base de données
-        'USER': 'root',
-        'PASSWORD': '',        
-        'HOST': '127.0.0.1',                    # Utile si votre base de données est sur une autre machine
-        'PORT': '3306',                          #... et si elle utilise un autre port que celui par défaut
+if os.environ.get('ENV') == 'PRODUCTION':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
+            'NAME': 'd6sg7k6rn422fb',             # Nom de la base de données
+            'USER': 'ymflhzrbkwdqtk',
+            'PASSWORD': '62ddeb18e37f1b3e3695050665b14c771235d125e85deee782137ba0273bb108',        
+            'HOST': 'ec2-35-169-254-43.compute-1.amazonaws.com',                    # Utile si votre base de données est sur une autre machine
+            'PORT': '5432',                          #... et si elle utilise un autre port que celui par défaut
+        }
     }
-}
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',   # Backends disponibles : 'postgresql', 'mysql', 'sqlite3' et 'oracle'.
+            'NAME': 'un',             # Nom de la base de données
+            'USER': 'root',
+            'PASSWORD': '',        
+            'HOST': '127.0.0.1',                    # Utile si votre base de données est sur une autre machine
+            'PORT': '3306',                          #... et si elle utilise un autre port que celui par défaut
+            'TEST': {
+                'CHARSET' : 'utf8',
+                'COLLATION':'utf8_general_ci'
+            }
+        }
+    }
+
 
 
 # Password validation
@@ -125,3 +151,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if os.environ.get('ENV') == 'PRODUCTION':
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
